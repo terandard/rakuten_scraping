@@ -10,7 +10,7 @@ import sqlite3
 
 class MyprojectPipeline(object):
     
-    CREATE_TABLE_book=('create table review ('
+    CREATE_TABLE=('create table review ('
         'id integer primary key,'
         'user_name text,'
         'age text,'
@@ -23,7 +23,7 @@ class MyprojectPipeline(object):
         'helpfulnum integer'
     ')')
 
-    INSERT_book_DATA=('insert into review ('
+    INSERT_DATA=('insert into review ('
         'user_name,age,sex,product_name,'
         'evaluation,date,title,contents,helpfulnum'
     ') values ('
@@ -36,7 +36,7 @@ class MyprojectPipeline(object):
     def __init__(self):
         self.conn=sqlite3.connect(self.DB_NAME)
         if self.conn.execute("select count(*) from sqlite_master where name='review'").fetchone()[0] == 0:
-            self.conn.execute(self.CREATE_TABLE_book)
+            self.conn.execute(self.CREATE_TABLE)
 
 
     def open_sqider(self,spider):
@@ -45,7 +45,7 @@ class MyprojectPipeline(object):
 
     def process_item(self, item, spider):
         if spider.name=='product_rakuten':
-            self.conn.execute(self.INSERT_book_DATA,(
+            self.conn.execute(self.INSERT_DATA,(
                 item['user_name'],item['age'],item['sex'],
                 item['product_name'],
                 item['evaluation'],item['date'],item['title'],
