@@ -19,7 +19,7 @@ https://product.rakuten.co.jp/
 　$ scrapy crawl product_rakuten  
 
 ## データベース
-データベース名：scraping_rakuten  
+データベース名：scraping_rakuten.db  
 テーブル名：review  
 カラム名：  
 　id → 固有id  
