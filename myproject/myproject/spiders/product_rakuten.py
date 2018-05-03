@@ -7,16 +7,13 @@ class Product_rakutenSpider(scrapy.Spider):
     # クロール対象とするドメインのリスト
     allowed_domains = ['product.rakuten.co.jp']
     # クロールを開始するURLのリスト。
-    # 1要素のタプルの末尾にはカンマが必要。
-    #'http://review.rakuten.co.jp/'
-    #https://product.rakuten.co.jp/search/?s=7&id=101266&v=table&st=1
-    #https://product.rakuten.co.jp/product/-/87cd9339b544746dac8cb871dcc18fc6/review/
 
     start_urls = ["https://product.rakuten.co.jp/search/?s=7&id=101354&v=table&st=1"]
 
 
     def parse(self, response):
-        limit='2'
+        #PAGE_LIMIT:クローリングするページ数
+        PAGE_LIMIT='2'
         for product in response.css('ul.proStarList li a::attr(href)').extract():
             #print(product)
             review_page=response.urljoin(product)
@@ -24,7 +21,7 @@ class Product_rakutenSpider(scrapy.Spider):
         try:
             now_page_num=response.css('span.thisPage::text').extract_first()
             print(now_page_num)
-            if now_page_num!=limit:
+            if now_page_num!=PAGE_LIMIT:
                 next_page_list=response.css('div.rsrPagination a::attr(href)')[-1].extract()
                 next_page_list=response.urljoin(next_page_list)
                 yield scrapy.Request(next_page_list,callback=self.parse)
