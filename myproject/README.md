@@ -15,7 +15,7 @@ https://product.rakuten.co.jp/
 1.上記URLからジャンルを選択（「小説・エッセイ」など）  
 2.表示されたページのURLをコピー  
 3. myproject/spiders/product_rakuten　内の start_url にコピーしたURLを貼り付け  
-4. myproject、rakuten_scraping.db、scrapy.cfg　が見えているディレクトリで下記コマンドを実行  
+4. myproject、scrapy.cfg　が見えているディレクトリで下記コマンドを実行  
 　$ scrapy crawl product_rakuten  
 
 ## データベース
