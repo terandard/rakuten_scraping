@@ -20,14 +20,14 @@ https://product.rakuten.co.jp/
 
 ## データベース
 データベース名：review  
-カラム名：  
- 'id integer primary key,' → 固有id  
- 'user_name text,' → ユーザー名  
- 'age text,' → 年齢  
- 'sex text,' → 性別  
- 'product_name text,' → 商品名  
- 'evaluation integer,' → レビューの評価  
- 'date text,' → 投稿日時  
- 'title text,' → レビュータイトル  
- 'contents text,' → レビュー内容  
- 'helpfulnum integer' → 参考にした人数  
+カラム名：  
+　id → 固有id  
+　user_name → ユーザー名  
+　age → 年齢  
+　sex → 性別  
+　product_name → 商品名  
+　evaluation → レビューの評価  
+　date → 投稿日時  
+　title → レビュータイトル  
+　contents → レビュー内容  
+　helpfulnum → 参考にした人数  
